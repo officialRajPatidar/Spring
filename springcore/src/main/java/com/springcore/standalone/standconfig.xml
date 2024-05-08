@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           https://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           https://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/util
+                           https://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- this our bean -->
+
+	<!-- use dtandalone with help of util schema -->
+	<!-- use list class -->
+	<util:list list-class="java.util.LinkedList" id="mybestfrd">
+		<value>raj</value>
+		<value>sham</value>
+		<value>raju</value>
+		<value>ramraj</value>
+	</util:list>
+	
+	
+	<!--  use utilmap class -->
+	
+	<util:map map-class="java.util.HashMap" id = "fees">
+	<entry  key="java" value="500"/>
+		<entry  key="c" value="5200"/>
+		<entry  key="c++" value="1500"/>
+	
+	</util:map>
+	
+	
+	<!-- use properties util class -->
+	<util:properties id="config">
+	<prop key="load driver">com.mysql.jdbc.Driver</prop>
+		<prop key="user name">raj patidar</prop>
+	
+		<prop key="url">mysql:jdbc://localhost:3003database</prop>
+	
+	</util:properties>
+
+	<bean class="com.springcore.standalone.Person" name="person">
+		<property name="friends" ref="mybestfrd" />
+<property name="subjectprice" ref="fees"/>
+<property name="props" ref="config"/>
+
+	</bean>
+
+
+
+</beans>
